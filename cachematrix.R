@@ -1,19 +1,19 @@
-## This function creates a square inverible matrix object that can
+## This function creates a square invertible matrix object that can
 ## cache its inverse
 
 
 makeCacheMatrix <- function(x = matrix()) {
-                   cache <- NULL
-                   set <- function (y){
-                                x <<- y
-                                cache <<- NULL
-                   }
-                   get <- function () x
-                   setmatrix <- function(solve) cache <<- solve
-                   getmatrix <- function()cache
-                   list(set=set, get=get,
-                        setmatrix=setmatrix,
-                        getmatrix=getmatrix)
+                 cache <- NULL
+                 set <- function (y){
+                            x <<- y
+                            cache <<- NULL
+                 }
+                 get <- function () x
+                 setmatrix <- function(solve) cache <<- solve
+                 getmatrix <- function()cache
+                 list(set=set, get=get,
+                    setmatrix=setmatrix,
+                    getmatrix=getmatrix)
 } 
 
 
@@ -24,14 +24,14 @@ makeCacheMatrix <- function(x = matrix()) {
 
 cacheSolve <- function(x = matrix(), ...) {
         ## Return a matrix that is the inverse of 'x'
-                   cache <- x$getmatrix()
-                   if (!is.null(cache)){
-                                message("getting cached data")
-                                return(cache)
-                   }
-                   matrix <- x$get()
-                   cache <- solve(matrix, ...)
-                   x$setmatrix(cache)
-                   cache
-                   }
+                 cache <- x$getmatrix()
+                 if (!is.null(cache)){
+                            message("getting cached data")
+                            return(cache)
+                 }
+                 matrix <- x$get()
+                 cache <- solve(matrix, ...)
+                 x$setmatrix(cache)
+                 cache
+                 }
 
