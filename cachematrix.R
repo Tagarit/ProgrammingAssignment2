@@ -39,11 +39,11 @@ cacheSolve <- function(x = matrix(), ...) {
                  m <- x$getmatrix()
                  
                  # return the inverted matrix if it exists
-                 if (!is.null(cache)){
+                 if (!is.null(m)){
                             message("getting cached data")
                                                  
                             # dislplays the matrix on the console                     
-                            return(cache)
+                            return(m)
                  }
                  
                  # creates a matrix since it does not exist
